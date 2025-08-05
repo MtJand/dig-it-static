@@ -1,0 +1,955 @@
+:root {
+    --primary: #001099;    /* Changed from green to blue */
+    --secondary: #f5f5f5;
+    --accent: #001099;
+    --text: #222;
+    --footer-bg: #222;
+    --footer-text: #fff;
+    --navbar-height-desktop: 64px;
+    --navbar-height-mobile: 56px;
+}
+
+html, body {
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--secondary);
+    font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 0; /* Remove padding-top in landscape/desktop */
+}
+
+header {
+    background: var(--accent);
+    color: #fff;
+    padding: 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6vw 0 2vw 0;
+}
+
+.logo {
+    width: 32vw;
+    max-width: 340px;
+    min-width: 120px;
+    height: auto;
+    aspect-ratio: 16/7;
+    object-fit: contain;
+    margin-bottom: 2vw;
+    border-radius: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+    display: block;
+}
+
+main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 2vw 5vw 2vw; /* Removed top padding */
+}
+
+section {
+    background: #fff;
+    border-radius: 2vw;
+    box-shadow: 0 0.3vw 2vw rgba(0,0,0,0.07);
+    margin: 3vw 0;
+    padding: 5vw 3vw;
+    width: 100%;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section h2 {
+    margin-top: 0;
+    color: var(--primary); /* Now blue */
+    font-size: 2.2rem;
+    letter-spacing: 0.1vw;
+}
+
+.owner-image, .van-image {
+    width: 32vw;
+    max-width: 220px;
+    min-width: 100px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 1.2vw;
+    margin: 0; /* Remove vertical margin for side-by-side */
+    box-shadow: 0 0.3vw 1vw rgba(0,0,0,0.08);
+    border: 0.3vw solid var(--secondary);
+}
+
+#gallery {
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Remove or comment out the old #gallery img styles */
+/* #gallery img {
+    width: 38vw;
+    max-width: 320px;
+    min-width: 140px;
+    aspect-ratio: 11/7;
+    object-fit: cover;
+    border-radius: 1.2vw;
+    margin: 2vw 0;
+    box-shadow: 0 0.3vw 1vw rgba(0,0,0,0.08);
+    border: 0.3vw solid var(--secondary);
+} */
+
+/* Update gallery grid and items */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
+    user-select: none; /* Prevent text selection */
+    -webkit-touch-callout: none; /* Disable callout on iOS */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+    -webkit-user-select: none; /* Prevent image selection/drag on iOS */
+    user-select: none;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    padding: 1.5rem 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-overlay span {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    align-items: center;
+}
+
+ul li a {
+    display: inline-block;
+    background: var(--primary); /* Now blue */
+    color: #fff;
+    padding: 1vw 4vw;
+    border-radius: 2vw;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s;
+    box-shadow: 0 0.2vw 0.7vw rgba(0,0,0,0.06);
+    font-size: 1.1rem;
+}
+
+ul li a:hover {
+    background: var(--accent); /* Also blue */
+}
+
+footer {
+    flex-shrink: 0;
+    width: 100%;
+    text-align: center;
+    padding: 2vw 0;
+    background: var(--footer-bg);
+    color: var(--footer-text);
+    font-size: 1rem;
+    letter-spacing: 0.1vw;
+    margin-top: auto;
+    z-index: 10;
+    border: none;
+    box-shadow: none;
+}
+
+/* Use only relative units for navbar and hero positioning */
+/* --- Navbar: always fixed, no expand/shrink --- */
+.navbar {
+    width: 100%;
+    background: var(--accent);
+    display: flex;
+    flex-direction: row;
+    align-items: center;           /* Ensures vertical centering */
+    justify-content: space-between;
+    padding: 0 3vw;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    height: var(--navbar-height-desktop);
+    min-height: 48px;
+    max-height: 80px;
+    box-sizing: border-box;
+    transition: none;
+}
+
+.logo {
+    height: 48px;
+    width: auto;
+    max-width: 180px;
+    min-width: 80px;
+    object-fit: contain;
+    margin: 0 2vw 0 0;      /* Remove margin-left, keep margin-right */
+    border-radius: 0;
+    border: none;
+    background: none;
+    box-shadow: none;
+    display: flex;           /* Use flex for vertical centering */
+    align-items: center;     /* Center vertically */
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-left: auto;
+}
+
+/* Nav links horizontal on desktop */
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2vw;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    background: none;
+    position: static;
+    width: auto;
+    box-shadow: none;
+}
+
+/* Burger menu for mobile/portrait */
+@media (max-width: 800px) {
+    .menu-toggle {
+        display: block;
+    }
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        gap: 2vw;
+        width: 100vw;
+        background: var(--accent);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        padding: 2vw 0;
+        z-index: 1050;
+    }
+    .navbar.open ul {
+        display: flex;
+    }
+}
+
+/* Remove navbar-spacer, no longer needed */
+.navbar-spacer {
+    display: none !important;
+}
+
+/* Default desktop styles */
+body, body.scrolled {
+    padding-top: var(--navbar-height-desktop);
+}
+
+/* Only apply mobile styles when both width AND orientation match mobile criteria */
+@media (max-width: 800px) and (orientation: portrait) {
+    .navbar {
+        height: var(--navbar-height-mobile);
+        min-height: 40px;
+        max-height: 56px;
+    }
+    body, body.scrolled {
+        padding-top: var(--navbar-height-mobile) !important;
+    }
+    .hero {
+        margin-top: calc(-1 * var(--navbar-height-mobile));
+    }
+}
+
+/* Desktop styles for all other scenarios (including portrait) */
+@media (min-width: 801px) {
+    .hero {
+        margin-top: calc(-1 * var(--navbar-height-desktop));
+    }
+}
+
+/* Update base hero styles */
+.hero {
+    width: 100vw;
+    min-width: 100vw;
+    margin: 0;
+    border-radius: 0;
+    position: relative;
+    left: 0;
+    right: 0;
+    transform: none;
+    min-height: 38vw;
+    max-height: 380px;
+    background: url('../assets/garden2.jpg') center center/cover fixed no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    box-sizing: border-box;
+    background-position-y: 0;
+}
+
+/* Mobile adjustments */
+@media (max-width: 800px) {
+    .hero {
+        background: url('../assets/garden2.jpg') center top/cover fixed no-repeat;
+        min-height: 45vw;
+        max-height: none; /* Remove max-height constraint on mobile */
+        height: 60vh; /* Use viewport height instead */
+        background-position-y: top; /* Force image to start from top */
+    }
+    .hero::before {
+        background: url('../assets/garden2.jpg') center top/cover no-repeat;
+        background-position-y: top;
+    }
+}
+
+.hero-overlay {
+    /* Add a semi-transparent dark background for readability */
+    background: rgba(0, 16, 60, 0.32); /* Softer, lighter overlay */
+    width: 92%;
+    height: 88%;
+    padding: 5vw 2vw 5vw 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 2vw; /* Rounded corners for a softer look */
+    margin: auto;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+
+.hero h1,
+.hero-slogan,
+.hero-call-btn {
+    color: #fff !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+
+.hero h1 {
+    font-size: 2.6rem;
+    margin: 0 0 1vw 0;
+    letter-spacing: 1px;
+}
+
+.hero-slogan {
+    font-size: 1.3rem;
+    margin-bottom: 2vw;
+}
+
+.hero-call-btn {
+    display: inline-block;
+    background: #fff;
+    color: var(--accent) !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 1vw 3vw;
+    border-radius: 2vw;
+    text-decoration: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    margin-top: 1vw;
+    text-shadow: none;
+}
+
+.hero-call-btn:hover,
+.hero-call-btn:focus {
+    background: var(--accent);
+    color: #fff !important;
+    box-shadow: 0 4px 16px rgba(0,16,153,0.18);
+}
+
+/* New hero button styles */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1vw;
+}
+
+.hero-btn {
+    display: inline-block;
+    background: #fff;
+    color: var(--accent) !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 1vw 3vw;
+    border-radius: 2vw;
+    text-decoration: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    margin-top: 1vw;
+    text-shadow: none;
+}
+
+.hero-btn:hover,
+.hero-btn:focus {
+    background: var(--accent);
+    color: #fff !important;
+    box-shadow: 0 4px 16px rgba(0,16,153,0.18);
+}
+
+/* Update mobile styles for both buttons */
+@media (max-width: 700px) {
+    .hero-btn,
+    .hero-call-btn {
+        font-size: 1rem;
+        padding: 2vw 6vw;
+        border-radius: 4vw;
+    }
+}
+
+/* Carousel styles */
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+    margin: 2vw 0;
+    width: 100%;
+    max-width: 90vw;
+    background: #fff;
+    border-radius: 2vw;
+    box-shadow: 0 0.3vw 2vw rgba(0,0,0,0.07);
+    padding: 3vw 2vw;
+    box-sizing: border-box;
+    position: relative;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.carousel-image {
+    width: 80vw;
+    max-width: 84vw;
+    min-width: 220px;
+    aspect-ratio: 16/9; /* Landscape aspect ratio */
+    object-fit: cover;
+    border-radius: 1.2vw;
+    box-shadow: 0 0.3vw 1vw rgba(0,0,0,0.08);
+    border: 0.3vw solid var(--secondary);
+    background: #f5f5f5;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    margin: 0 1vw;
+    display: block;
+}
+
+/* Carousel buttons remain at the sides, vertically centered */
+.carousel-btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    outline: none;
+    position: relative;
+    z-index: 2;
+}
+
+.carousel-btn:hover,
+.carousel-btn:focus {
+    background: #fff;
+    color: var(--accent);
+    border: 2px solid var(--accent);
+    box-shadow: 0 4px 16px rgba(0,16,153,0.18);
+}
+
+/* Mobile-friendly adjustments */
+@media (max-width: 700px) {
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+    .hero-slogan {
+        font-size: 1rem;
+    }
+    .hero-call-btn {
+        font-size: 1rem;
+        padding: 2vw 6vw;
+        border-radius: 4vw;
+    }
+    .carousel {
+        flex-direction: row;
+        gap: 2vw;
+        padding: 3vw 1vw;
+    }
+    .carousel-image {
+        width: 92vw;
+        max-width: 98vw;
+        min-width: 0;
+        border-radius: 3vw;
+        height: auto;
+        aspect-ratio: 16/9;
+        margin: 0 1vw;
+    }
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        margin: 0;
+    }
+}
+
+/* Swipe hint for carousel */
+.carousel-swipe-hint {
+    display: none; /* Hidden by default */
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 0.5vw 1.5vw;
+    border-radius: 2vw;
+    font-size: 0.9rem;
+    text-align: center;
+    z-index: 10;
+}
+
+/* Show swipe hint on mobile */
+@media (max-width: 700px) {
+    .carousel-swipe-hint {
+        display: block;
+    }
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+    .carousel-btn {
+        display: none !important;
+    }
+    .carousel-swipe-hint {
+        display: block;
+        color: var(--accent);
+        font-size: 1.1rem;
+        text-align: center;
+        margin-top: 2vw;
+        font-weight: 500;
+        letter-spacing: 0.03em;
+    }
+}
+
+/* By default, hide the swipe hint on desktop/landscape */
+.carousel-swipe-hint {
+    display: none;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2vw;
+    width: 100%;
+    margin: 2vw 0;
+}
+
+.service-card {
+    background: var(--secondary);
+    border-radius: 1vw;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 0.2vw 1vw rgba(0,0,0,0.05);
+}
+
+.service-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    border-radius: 0.5vw;
+    margin-bottom: 1.5vw;
+    border: 0.2vw solid #fff;
+}
+
+.service-card h3 {
+    color: var(--primary);
+    font-size: 1.4rem;
+    margin: 0 0 1vw 0;
+}
+
+.service-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0 0 2vw 0;
+}
+
+.service-btn {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.8vw 2vw;
+    border-radius: 1vw;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.2s;
+    margin-top: auto;
+}
+
+.service-btn:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Mobile adjustments */
+@media (max-width: 800px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 4vw;
+    }
+    
+    .service-card {
+        padding: 4vw;
+    }
+    
+    .service-btn {
+        padding: 2vw 6vw;
+        border-radius: 2vw;
+    }
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem 0;
+}
+
+.gallery-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
+    user-select: none; /* Prevent text selection */
+    -webkit-touch-callout: none; /* Disable callout on iOS */
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+    -webkit-user-select: none; /* Prevent image selection/drag on iOS */
+    user-select: none;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    padding: 1.5rem 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-overlay span {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+/* Mobile adjustments */
+@media (max-width: 800px) {
+    .gallery-grid {
+        grid-template-columns: 1fr 1fr;  /* Force 2 columns */
+        gap: 0.8rem;
+        width: 100%;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;  /* Single column */
+        width: 100%;
+        padding: 0.5rem;
+    }
+}
+
+/* Modal styles for image expansion */
+.gallery-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.gallery-modal.active {
+    display: flex;
+}
+
+.gallery-modal img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 0.5rem;
+}
+
+.gallery-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.about-text {
+    flex: 1;
+    padding: 0;
+    max-width: 60%;
+}
+
+.about-images {
+    flex: 0 0 35%;
+    max-width: 400px;
+    padding: 0;
+    margin: 0; /* Remove any margin */
+    display: flex; /* Add flex to ensure proper alignment */
+    justify-content: center; /* Center the image horizontally */
+}
+
+.owner-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin: 0; /* Remove any margin */
+}
+
+@media (max-width: 800px) {
+    .about-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 1rem;
+        gap: 2rem;
+    }
+    
+    .about-text {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .about-images {
+        width: 80%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
+
+/* Update navbar link styles */
+.navbar ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+    overflow: hidden;
+}
+
+.navbar ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.navbar ul li a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.navbar ul li a:hover::before {
+    width: 100%;
+}
+
+.navbar ul li a:hover::after {
+    width: 100%;
+}
+
+.navbar ul li a:active {
+    transform: scale(0.97);
+    transition: transform 0.1s ease;
+}
+
+/* Add after your existing hero styles */
+.hero-stats {
+    display: flex;
+    gap: 3rem;
+    margin: 1rem 0;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.8rem 1.2rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-2px);
+}
+
+.stat-number {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+
+.stat-label {
+    color: #fff;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.9;
+}
+
+@media (max-width: 800px) {
+    .hero-stats {
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .stat-item {
+        padding: 0.6rem 1rem;
+    }
+
+    .stat-number {
+        font-size: 1.2rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
+}
