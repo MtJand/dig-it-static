@@ -623,7 +623,7 @@ body, body.scrolled {
     right: 0;
     transform: none;
     min-height: 70vh;
-    background: linear-gradient(135deg, rgba(0, 16, 60, 0.40), rgba(0, 16, 60, 0.30)), url('../assets/garden2.jpg') center center/cover fixed no-repeat;
+    background: linear-gradient(135deg, rgba(0, 16, 60, 0.40), rgba(0, 16, 60, 0.30)), url('../assets/garden2.jpg') center center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -632,12 +632,29 @@ body, body.scrolled {
     background-position-y: 0;
 }
 
-/* Mobile adjustments */
+/* Desktop parallax effect - only apply fixed background on desktop */
+@media (min-width: 801px) {
+    .hero {
+        background-attachment: fixed;
+    }
+}
+
+/* Mobile adjustments - disable parallax to fix iOS Chrome scrolling issues */
 @media (max-width: 800px) {
     .hero {
-        background: linear-gradient(135deg, rgba(0, 16, 60, 0.40), rgba(0, 16, 60, 0.30)), url('../assets/garden2.jpg') center top/cover fixed no-repeat;
+        background: linear-gradient(135deg, rgba(0, 16, 60, 0.40), rgba(0, 16, 60, 0.30)), url('../assets/garden2.jpg') center top/cover no-repeat;
         min-height: 60vh;
         background-position-y: top;
+        background-attachment: scroll;
+    }
+}
+
+/* Additional fix for iOS devices specifically */
+@media (max-width: 800px) and (-webkit-min-device-pixel-ratio: 1) {
+    .hero {
+        background-attachment: scroll;
+        -webkit-background-size: cover;
+        background-size: cover;
     }
 }
 
