@@ -623,7 +623,7 @@ body, body.scrolled {
     right: 0;
     transform: none;
     min-height: 70vh;
-    background: linear-gradient(135deg, rgba(0, 16, 60, 0.40), rgba(0, 16, 60, 0.30)), url('../assets/garden2.jpg') center center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(0, 16, 60, 0.40), rgba(0, 16, 60, 0.30)), url('../assets/banner.jpg') center center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -642,7 +642,7 @@ body, body.scrolled {
 /* Mobile adjustments - disable parallax to fix iOS Chrome scrolling issues */
 @media (max-width: 800px) {
     .hero {
-        background: linear-gradient(135deg, rgba(0, 16, 60, 0.40), rgba(0, 16, 60, 0.30)), url('../assets/garden2.jpg') center top/cover no-repeat;
+        background: linear-gradient(135deg, rgba(0, 16, 60, 0.40), rgba(0, 16, 60, 0.30)), url('../assets/banner.jpg') center top/cover no-repeat;
         min-height: 60vh;
         background-position-y: top;
         background-attachment: scroll;
