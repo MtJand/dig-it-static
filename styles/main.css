@@ -894,7 +894,7 @@ body, body.scrolled {
     }
 }
 
-.google-reviews-summary {
+.reviews-summary {
     display: flex;
     justify-content: center;
     margin: 2rem 0 3rem 0;
@@ -905,7 +905,7 @@ body, body.scrolled {
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.google-rating {
+.rating {
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -943,9 +943,9 @@ body, body.scrolled {
     opacity: 0.7;
 }
 
-/* Mobile adjustments for Google reviews */
+/* Mobile adjustments for reviews */
 @media (max-width: 600px) {
-    .google-rating {
+    .rating {
         flex-direction: column;
         text-align: center;
         gap: 1rem;
