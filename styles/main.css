@@ -1101,6 +1101,16 @@ body, body.scrolled {
         width: 100%;
         padding: 0.5rem;
     }
+    
+    /* Make overlay always visible on mobile */
+    .gallery-overlay {
+        transform: translateY(0);
+    }
+    
+    /* Remove hover effect on mobile since overlay is always visible */
+    .gallery-item:hover .gallery-overlay {
+        transform: translateY(0);
+    }
 }
 
 @media (max-width: 600px) {
@@ -1108,6 +1118,11 @@ body, body.scrolled {
         grid-template-columns: 1fr; 
         width: 100%;
         padding: 0.5rem;
+    }
+    
+    /* Ensure overlay remains visible on smallest screens */
+    .gallery-overlay {
+        transform: translateY(0);
     }
 }
 
