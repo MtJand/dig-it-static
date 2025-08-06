@@ -186,11 +186,207 @@ ul li a:hover {
     background: var(--accent);
 }
 
+/* Contact Section */
+#contact {
+    background: linear-gradient(135deg, #001099 0%, #0066cc 100%);
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.contact-intro {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+    line-height: 1.6;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.contact-icon {
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.contact-card p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 0.25rem;
+}
+
+.contact-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.contact-btn-primary {
+    background: #ff6b35;
+    border-color: #ff6b35;
+    font-size: 1.1rem;
+    padding: 1rem 2rem;
+}
+
+.contact-btn-primary:hover {
+    background: #e55a2b;
+    border-color: #e55a2b;
+}
+
+.contact-btn-facebook {
+    background: #1877f2;
+    border-color: #1877f2;
+}
+
+.contact-btn-facebook:hover {
+    background: #166fe5;
+    border-color: #166fe5;
+}
+
+.contact-btn-instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border: none;
+}
+
+.contact-btn-instagram:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+@media (max-width: 800px) {
+    #contact {
+        padding: 3rem 1rem;
+    }
+    
+    #contact h2 {
+        font-size: 2rem;
+    }
+    
+    .contact-intro {
+        font-size: 1.1rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .contact-card {
+        padding: 1.5rem;
+    }
+    
+    .social-buttons {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    #contact h2 {
+        font-size: 1.8rem;
+    }
+    
+    .contact-intro {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .contact-card {
+        padding: 1.25rem;
+    }
+    
+    .contact-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .contact-btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .contact-btn-primary {
+        padding: 0.8rem 1.5rem;
+    }
+}
+
 footer {
     flex-shrink: 0;
     width: 100%;
     text-align: center;
-    padding: 2vw 0;
+    padding: 2rem 0 1rem 0;
     background: var(--footer-bg);
     color: var(--footer-text);
     font-size: 1rem;
@@ -199,6 +395,44 @@ footer {
     z-index: 10;
     border: none;
     box-shadow: none;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.contact-footer {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.service-areas {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--footer-text);
+}
+
+.opening-hours {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--footer-text);
+}
+
+.quick-response {
+    opacity: 0.8;
+    font-size: 0.9rem;
+    color: var(--footer-text);
+    margin: 0;
+}
+
+.copyright {
+    margin: 0;
+    opacity: 0.7;
 }
 
 .navbar {
