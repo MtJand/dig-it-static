@@ -18,6 +18,8 @@ html, body {
     background: var(--secondary);
     font-family: 'Inter', 'Segoe UI', 'Arial', sans-serif;
     overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--navbar-height-desktop);
 }
 
 body {
@@ -597,6 +599,9 @@ body, body.scrolled {
     }
     .hero {
         margin-top: calc(-1 * var(--navbar-height-mobile));
+    }
+    html {
+        scroll-padding-top: var(--navbar-height-mobile);
     }
 }
 
