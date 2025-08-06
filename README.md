@@ -1,43 +1,83 @@
-# Gardening Website
+# Dig It Gardening Website
 
-This project is a simple, modern website for a local gardening company. It aims to establish brand legitimacy and provide potential clients with easy access to contact options via social media and phone calls.
+A modern, professional website for Dig It Gardening - a local gardening company serving Leeds, Harrogate, York and Ripon. The website establishes brand legitimacy and provides multiple contact options for potential clients.
 
 ## Project Structure
 
 ```
-gardening-website
-├── public
-│   ├── index.html          # Main HTML document for the website
-│   ├── styles
-│   │   └── main.css       # CSS styles for the website
-│   ├── scripts
-│   │   └── main.js        # JavaScript for interactive features
-│   └── assets
-│       ├── owner.jpg      # Image of the owner/operator
-│       ├── van.jpg        # Image of the branded van
-│       └── logo.jpg       # Company logo
-└── README.md              # Documentation for the project
+gardening-website/
+├── public/
+│   ├── index.html             # Main HTML document
+│   ├── README.md              # Project documentation
+│   ├── assets/
+│   │   ├── banner.jpg         # Hero section background image
+│   │   ├── design.jpg         # Landscape design service image
+│   │   ├── garden1.jpg        # Gallery image 1
+│   │   ├── garden2.jpg        # Gallery image 2
+│   │   ├── garden3.jpg        # Gallery image 3
+│   │   ├── garden4.jpg        # Gallery image 4
+│   │   ├── garden5.jpg        # Gallery image 5
+│   │   ├── garden6.jpg        # Gallery image 6
+│   │   ├── logo.jpg           # Company logo
+│   │   ├── maintenance.jpg    # Garden maintenance service image
+│   │   ├── owner.jpg          # Image of the owner/operator
+│   │   └── reno.jpg           # Garden renovation service image
+│   ├── scripts/
+│   │   └── main.js           # JavaScript for interactive features
+│   └── styles/
+│       └── main.css          # Complete CSS styling with responsive design
 ```
 
 ## Features
 
-- **About Section**: Introduces the gardening company and its services.
-- **Gallery Section**: Displays images of the owner, branded van, and completed projects.
-- **Contact Section**: Provides options to contact the company via social media and phone.
+### Core Sections
+- **Hero Section**: Eye-catching banner with company branding, service area coverage, and key statistics
+- **Services Section**: Three main service categories with dedicated imagery and descriptions
+- **Testimonials Section**: Customer reviews with star ratings and Google rating display
+- **Gallery Section**: Interactive image gallery showcasing completed projects
+- **About Section**: Personal introduction to the owner with professional imagery
+- **Contact Section**: Multiple contact methods including phone, social media links
+
+### Interactive Features
+- **Responsive Navigation**: Mobile-friendly hamburger menu with smooth animations
+- **Image Gallery Modal**: Click-to-expand gallery images (desktop only)
+- **Smooth Scrolling**: Navigation links with smooth scroll behavior
+- **Hover Effects**: Enhanced button and card interactions
+- **Mobile Optimization**: Optimized layouts and touch-friendly interfaces
 
 ## Setup Instructions
 
 1. Clone the repository:
-   ```
+   ```bash
    git clone <repository-url>
-   ```
-
-2. Navigate to the project directory:
-   ```
    cd gardening-website
    ```
 
-3. Open the `public/index.html` file in a web browser to view the website.
+2. Open the website:
+   ```bash
+   # Simply open the index.html file in your browser
+   open public/index.html
+   
+   # Or serve locally (optional)
+   cd public
+   python -m http.server 8000
+   # Then visit http://localhost:8000
+   ```
+
+3. For development:
+   - Edit `public/index.html` for content changes
+   - Modify `public/styles/main.css` for styling updates
+   - Update `public/scripts/main.js` for interactive features
+   - Replace images in `public/assets/` as needed
+
+## Browser Support
+
+- Chrome 60+
+- Firefox 55+
+- Safari 11+
+- Edge 79+
+- Mobile Safari (iOS 11+)
+- Chrome Mobile
 
 ## Contributing
 
