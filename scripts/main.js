@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     menuToggle?.addEventListener('click', function() {
         navbar.classList.toggle('open');
     });
-    // Optional: close menu when a link is clicked
+    
+    // close menu when a link is clicked
     navbar.querySelectorAll('ul a').forEach(link => {
         link.addEventListener('click', () => {
             navbar.classList.remove('open');
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add scroll-to-top for logo clicks
     const logo = document.querySelector('.logo');
+    logo.style.cursor = 'pointer';
     logo.addEventListener('click', function() {
         document.body.scrollTo({
             top: 0,
@@ -20,8 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Make logo clickable
-    logo.style.cursor = 'pointer';
 
     // Gallery functionality
     const gallery = document.querySelector('.gallery-grid');
@@ -67,16 +67,4 @@ document.addEventListener('DOMContentLoaded', function() {
             body.style.overflow = '';
         }
     });
-});
-
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    const body = document.body;
-    if (window.scrollY > 10) {
-        navbar.classList.add('scrolled');
-        body.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-        body.classList.remove('scrolled');
-    }
 });
