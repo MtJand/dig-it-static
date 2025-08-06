@@ -1171,10 +1171,12 @@ body, body.scrolled {
 
 .hero-stats {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     margin: 0.5rem 0;
     position: relative;
     top: -1rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .stat-item {
@@ -1187,6 +1189,23 @@ body, body.scrolled {
     gap: 0.4rem;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     border: 1px solid rgba(255, 255, 255, 0.15);
+    min-width: fit-content;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.stat-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.stat-item:active {
+    transform: translateY(0);
+    transition: transform 0.1s ease;
 }
 
 .stat-number {
