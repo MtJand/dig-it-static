@@ -334,7 +334,7 @@ body, body.scrolled {
 /* Mobile adjustments */
 @media (max-width: 800px) {
     .hero {
-        background: linear-gradient(135deg, rgba(0, 16, 153, 0.95), rgba(0, 16, 153, 0.85)), url('../assets/garden2.jpg') center top/cover fixed no-repeat;
+        background: linear-gradient(135deg, rgba(0, 16, 60, 0.40), rgba(0, 16, 60, 0.30)), url('../assets/garden2.jpg') center top/cover fixed no-repeat;
         min-height: 60vh;
         background-position-y: top;
     }
