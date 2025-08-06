@@ -311,8 +311,9 @@ ul li a:hover {
 }
 
 .contact-btn-instagram:hover {
-    opacity: 0.9;
+    background: linear-gradient(45deg, #e0872e 0%, #d15f36 25%, #c7243d 50%, #b81f5b 75%, #a9157a 100%);
     transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 .social-buttons {
